@@ -68,9 +68,6 @@ jobs:
         run: |
           echo "🔗 Tailscale IP:"
           tailscale ip -4 || echo "未获取到 Tailscale IP"
-          echo ""
-          echo "🔑 tmate SSH 会话地址:"
-          cat $HOME/.tmate.sock/ssh
   
       - name: 启动 tmate 会话以支持 SSH 访问
         uses: mxschmitt/action-tmate@v3
