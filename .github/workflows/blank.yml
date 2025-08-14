@@ -8,7 +8,7 @@ on:
 jobs:
   vps-session:
     runs-on: ubuntu-latest
-    timeout-minutes: 300  # 5小时
+    timeout-minutes: 600  # 5小时
 
     steps:
       - name: 检出代码
@@ -76,7 +76,7 @@ jobs:
           cat $HOME/.tmate.sock/ssh
 
       - name: 保持 VPS 运行
-        run: sleep 18000  # 5小时
+        run: sleep 36000  # 5小时
 
       - name: 备份 VPS 数据和 Tailscale 状态
         run: |
