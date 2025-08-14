@@ -1,4 +1,4 @@
-name: ubuntu-vps
+name: laalucas-vps
 
 on:
   schedule:
@@ -14,8 +14,8 @@ jobs:
       - name: 检出代码
         uses: actions/checkout@v4
 
-      - name: 设置主机名为 lucas-vps
-        run: sudo hostnamectl set-hostname lucas-vps
+      - name: 设置主机名为 laalucas-vps
+        run: sudo hostnamectl set-hostname laalucas-vps
 
       - name: 下载 VPS 备份（如果有）
         uses: actions/download-artifact@v4
@@ -63,10 +63,7 @@ jobs:
             sudo usermod -aG sudo lucas
             echo "lucas ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/lucas
           fi
-
-      - name: 启动 tmate 会话以支持 SSH 访问
-        uses: mxschmitt/action-tmate@v3
-
+      
       - name: 显示 Tailscale IP 和 tmate 信息
         run: |
           echo "🔗 Tailscale IP:"
@@ -74,6 +71,9 @@ jobs:
           echo ""
           echo "🔑 tmate SSH 会话地址:"
           cat $HOME/.tmate.sock/ssh
+  
+      - name: 启动 tmate 会话以支持 SSH 访问
+        uses: mxschmitt/action-tmate@v3
 
       - name: 保持 VPS 运行
         run: sleep 18000  # 5小时
