@@ -53,7 +53,7 @@ jobs:
         run: |
           sudo tailscaled &
           sleep 8
-          sudo tailscale up --authkey ${{ secrets.TAILSCALE_AUTHKEY }} --hostname=lucas-vps || echo "Tailscale 已启动"
+          sudo tailscale up --authkey ${{ secrets.TAILSCALE_AUTHKEY }} --hostname=laalucas-vps || echo "Tailscale 已启动"
 
       - name: 创建用户 lucas 并赋予 sudo 权限
         run: |
